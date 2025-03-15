@@ -11,6 +11,10 @@ html {
   @apply text-[18px];
 }
 
+.salat-card {
+  @apply bg-center bg-cover  bg-no-repeat;
+}
+
 .flexBetween {
   @apply flex justify-between items-center;
 }
