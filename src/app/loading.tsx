@@ -1,9 +1,3 @@
 export default function Loading() {
-  return (
-    <div className="loader-background">
-      <span className="loader">
-        <span className="loader-inner"></span>
-      </span>
-    </div>
-  );
+  return <div className="bg-red-500 min-h-screen">loading</div>;
 }

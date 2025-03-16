@@ -48,7 +48,7 @@ export default async function HomePage() {
     });
   }
   return (
-    <main className="flex px-[1.2rem] max-w-[70rem] gap-[1.2rem] mx-auto flex-wrap my-[1.2rem]">
+    <main className="flex px-[1.2rem] max-lg:px-[0.8rem] max-w-[70rem] max-lg1:justify-center gap-[1.2rem] max-lg:gap-[0.8rem] mx-auto flex-wrap my-[1.2rem]">
       {salatTimes
         .sort(
           (a, b) => +a.time.split(":").join("") - +b.time.split(":").join("")

@@ -18,7 +18,7 @@ export const getAdhanTimes = async () => {
   const url = `https://api.aladhan.com/v1/timingsByAddress?address=blida,meftah&method=19&date=${date}`;
   try {
     const response = await axios.get(url);
-    console.log(response.data.data.timings);
+    // console.log(response.data.data.timings);
     return response.data.data.timings;
   } catch (error) {
     console.error(error);
