@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { RiHandCoinFill } from "react-icons/ri";
 
-export interface DonationCardProps {
+export interface DonationCard_i {
   type: "charity" | "blood" | "build";
   title: string;
   description: string;
@@ -14,7 +14,7 @@ export default function DonationCard({
   title,
   description,
   index,
-}: DonationCardProps & { index: number }) {
+}: DonationCard_i & { index: number }) {
   const buttonTxt = (type: string) => {
     switch (type) {
       case "charity":

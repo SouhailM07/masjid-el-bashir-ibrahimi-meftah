@@ -1,8 +1,8 @@
 import DonationCard, {
-  donationCard_i,
+  DonationCard_i,
 } from "@/components/atoms/DonationCard/DonationCard";
 
-const donationData: donationCard_i[] = [
+const donationData: DonationCard_i[] = [
   {
     type: "charity",
     title: "تبرع لتنمو الحياة",
