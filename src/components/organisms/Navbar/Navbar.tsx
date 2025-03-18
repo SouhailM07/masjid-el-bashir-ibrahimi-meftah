@@ -1,13 +1,11 @@
+"use client";
 import Image from "next/image";
 import logo from "/public/mosque.svg";
-import { headers } from "next/headers";
 import MySidebar from "../MySidebar/MySidebar";
 import { navLinks } from "@/lib/constants";
+import { usePathname } from "next/navigation";
 
-export default async function Navbar() {
-  const headersList = headers();
-  const fullUrl = (await headersList).get("referer");
-  let currentUrl = fullUrl?.split("/")[3];
+export default function Navbar() {
   return (
     <header className="bg-myPrimary py-2 px-[2rem] lg:px-[4rem] drop-shadow-xl">
       <nav className="flexBetween">
@@ -17,7 +15,7 @@ export default async function Navbar() {
         </div>
         <ul className="flexBetween max-lg:hidden! w-[34rem] text-[1.6rem] text-mySecondary">
           {navLinks.map((link, index) => (
-            <NavLink {...link} currentUrl={currentUrl} key={index} />
+            <NavLink {...link} key={index} />
           ))}
         </ul>
         <div className="w-[9rem] text-mySecondary flex justify-end items-center text-[1.2rem]">
@@ -28,10 +26,14 @@ export default async function Navbar() {
   );
 }
 
-const NavLink = ({ Icon, text, currentUrl, link }) => {
+const NavLink = ({ Icon, text, link }) => {
+  const pathname = usePathname();
+  let currentUrl = pathname.split("/")[1];
   return (
     <li
-      className={`hover:text-myAccent ${currentUrl == link && "text-myAccent"}`}
+      className={`hover:text-myAccent ${
+        currentUrl == link.slice(1) && "text-myAccent"
+      }`}
     >
       <a href={link} className="flex flex-col items-center text-center">
         <Icon />

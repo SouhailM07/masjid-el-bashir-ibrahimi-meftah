@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.donation-card--charity {
+  @apply bg-[url('/donation.webp')] hover:bg-[0%_80%];
+}
+
+.donation-card--blood {
+  @apply bg-[url('/blood_donation.webp')] hover:bg-[0%_30%];
+}
+
+.donation-card--build {
+  @apply bg-[url('/mosque_donation.webp')] bg-[0%_80%] hover:bg-[0%_50%];
+}

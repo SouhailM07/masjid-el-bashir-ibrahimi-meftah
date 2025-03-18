@@ -1,3 +1,4 @@
+"use client";
 import {
   Sheet,
   SheetContent,
@@ -7,13 +8,10 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { navLinks } from "@/lib/constants";
-import { headers } from "next/headers";
+import { usePathname } from "next/navigation";
 import { FaBars } from "react-icons/fa6";
 
-export default async function MySidebar() {
-  const headersList = headers();
-  const fullUrl = (await headersList).get("referer");
-  const currentUrl = fullUrl?.split("/")[3];
+export default function MySidebar() {
   return (
     <Sheet>
       <SheetTrigger>
@@ -24,7 +22,7 @@ export default async function MySidebar() {
           <SheetTitle className="text-center">الصفحات </SheetTitle>
           <ul className="flex flex-col mt-[2rem] gap-y-[1.6rem] w-[80%] mx-auto items-center  text-[1.6rem] ">
             {navLinks.map((link, index) => (
-              <NavLink {...link} currentUrl={currentUrl} key={index} />
+              <NavLink {...link} key={index} />
             ))}
           </ul>
           <SheetDescription />
@@ -34,11 +32,13 @@ export default async function MySidebar() {
   );
 }
 
-const NavLink = ({ Icon, text, currentUrl, link }) => {
+const NavLink = ({ Icon, text, link }) => {
+  const pathname = usePathname();
+  let currentUrl = pathname.split("/")[1];
   return (
     <li
-      className={` hover:text-myAccent w-full ${
-        currentUrl == link && "text-myAccent"
+      className={` hover:text-myPrimary w-full ${
+        currentUrl == link.slice(1) && "text-myPrimary"
       }`}
     >
       <a href={link} className=" justify-between flex  ">

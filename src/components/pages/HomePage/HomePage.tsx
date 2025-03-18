@@ -7,43 +7,43 @@ export default async function HomePage() {
     {
       time: timings.Fajr,
       name: "صلاة الفجر",
-      img: "/fajr.jpg",
+      img: "/fajr.webp",
     },
     {
       time: timings.Sunrise,
       name: "صلاة الصبح",
-      img: "/subh.jpg",
+      img: "/subh.webp",
     },
     {
       time: timings.Dhuhr,
       name: "صلاة الظهر",
-      img: "/lora-p-hVb6RvCJ_ug-unsplash.jpg",
+      img: "/duhr.webp",
     },
     {
       time: timings.Asr,
       name: "صلاة العصر",
-      img: "/3asr.jpg",
+      img: "/3asr.webp",
     },
     {
       time: timings.Maghrib,
       name: "صلاة المغرب",
-      img: "/maghreb.jpg",
+      img: "/maghreb.webp",
     },
     {
       time: timings.Isha,
       name: "صلاة العشاء",
-      img: "/3isha.jpg",
+      img: "/3isha.webp",
     },
   ];
   if (timings.Imsak) {
     salatTimes.push({
       time: timings.Imsak,
       name: "امساك",
-      img: "/imsak.jpg",
+      img: "/imsak.webp",
     });
     salatTimes.push({
       name: "صلاة التراويح",
-      img: "/tarawih.jpg",
+      img: "/tarawih.webp",
       time: timings.Isha,
     });
   }
@@ -54,7 +54,7 @@ export default async function HomePage() {
           (a, b) => +a.time.split(":").join("") - +b.time.split(":").join("")
         )
         .map((salat, index) => (
-          <SalatCard key={index} {...salat} />
+          <SalatCard key={index} index={index} {...salat} />
         ))}
     </main>
   );
