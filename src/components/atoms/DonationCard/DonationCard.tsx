@@ -52,8 +52,8 @@ export default function DonationCard({
     <motion.div
       initial={{ scale: 0.4, opacity: 0 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: index * 0.2 }}
-      className={`group relative flex items-center transition-all rounded-md w-full min-h-[8rem] overflow-hidden`}
+      transition={{ delay: index * 0.24 }}
+      className={`group relative flex items-center rounded-md w-full min-h-[8rem] overflow-hidden`}
     >
       {/* Background Image */}
       <Image
@@ -61,7 +61,7 @@ export default function DonationCard({
         alt={type}
         fill
         style={{ objectFit: "cover" }}
-        className="absolute inset-0 w-full h-full object-cover object-center group-hover:object-[0%_80%] transition-all duration-500 ease-out"
+        className="absolute inset-0 w-full h-full object-cover object-center group-hover:object-[0%_80%]  duration-500 ease-out"
       />
 
       {/* Content */}
